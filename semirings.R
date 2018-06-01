@@ -57,6 +57,10 @@ Sr.binary <- function(A) {B <- A; B[B!=Sr.zero] <- Sr.one; return(B)}
 
 Sr.select <- function(n,s) {S <- rep(Sr.zero,n); S[s] <- Sr.one; return(S)}
 
+Sr.Perm <- function(A,p) return(A[p,p])
+
+Sr.perminv <- function(p) {q <- p; q[p] <- 1:length(p); return(q)}
+
 '%[+]%' <- Sr.Plus <- function(A,B){
   if(is.null(dim(A))) {na <- length(A); C <- numeric(na)
     for(i in 1:na) C[i] <- A[i] %(+)% B[i]; return(C)}
