@@ -38,7 +38,7 @@ vec.Betweenness <- function(dis,cnt){
 }
 
 vec.betweenness <- function(m)
-{ mt <- mat.geodesics(m); return(vec.Betweenness(mt$dis,m$tcnt)) }
+{ mt <- mat.geodesics(m); return(vec.Betweenness(mt$dis,mt$cnt)) }
 
 g <- c(
  0, 1, 1, 0, 0, 0, 0, 0,
