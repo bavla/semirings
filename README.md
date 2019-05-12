@@ -1,6 +1,7 @@
 # semirings 
 basic support in R for network analysis using matrices over semirings
 
+The active semiring has two binary operations %(+)% and %(.)% with neutral elements Sr.zero and Sr.one. 
 
 > source("https://github.com/bavla/semirings/raw/master/semirings.R")
 
@@ -9,6 +10,8 @@ Sr.set  (sr="combinatorial",r=2)
 
 Sr.get  () 
   returns the name of the active semiring
+
+Sr.star (a) closure unary operation in absorptive semiring
 
 Sr.Zero (n)
   returns a square Sr.zero matrix of size n
