@@ -53,4 +53,7 @@ Sr.Closure (A)
 Sr.save.net (fnet,A)
   saves the matrix  A  to the file  fnet  in Pajek's matrix format
 
+TO DO:
+
+Sr.load.net (fnet)
 
