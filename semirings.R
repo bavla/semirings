@@ -10,32 +10,32 @@
 #
 
 Sr.set <- function(sr="combinatorial",r=2){
-  if(sr=="combinatorial"){
+  if(sr=="combinatorial"){Sr.sr <<- "combinatorial"
     Sr.zero <<- 0; Sr.one <<- 1; Sr.absorption <<- FALSE
     '%(+)%' <<- function(a,b) return(a+b)
     '%(.)%' <<- function(a,b) return(a*b)
     Sr.star <<- function(a) if(a==1) return(Inf) else
       if(a==Inf) return(Inf) else return(1/(1-a))
-  } else if(sr=="shortpaths"){
+  } else if(sr=="shortpaths"){Sr.sr <<- "shortpaths" 
     Sr.zero <<- Inf; Sr.one <<- 0; Sr.absorption <<- TRUE
     '%(+)%' <<- min
     '%(.)%' <<- function(a,b) return(a+b)
     Sr.star <<- function(a) return(0)
-  } else if(sr=="logical"){
+  } else if(sr=="logical"){Sr.sr <<- "logical"
     Sr.zero <<- 0; Sr.one <<- 1; Sr.absorption <<- TRUE
     '%(+)%' <<- max
     '%(.)%' <<- min
     Sr.star <<- function(a) return(1)
-  } else if(sr=="maxmin"){
+  } else if(sr=="maxmin"){Sr.sr <<- "maxmin"
     Sr.zero <<- 0; Sr.one <<- Inf; Sr.absorption <<- TRUE
     '%(+)%' <<- max
     '%(.)%' <<- min
     Sr.star <<- function(a) return(Inf)
-  } else if(sr=="log"){
+  } else if(sr=="log"){Sr.sr <<- "log"
     Sr.zero <<- Inf; Sr.one <<- 0; Sr.absorption <<- FALSE
     '%(+)%' <<- function(a,b) return(-log(exp(-a)+exp(-b)))
     '%(.)%' <<- function(a,b) return(a+b)
-  } else if(sr=="pathfinder"){
+  } else if(sr=="pathfinder"){Sr.sr <<- "pathfinder" 
     Sr.zero <<- Inf; Sr.one <<- 0; Sr.absorption <<- TRUE
     '%(+)%' <<- min
     '%(.)%' <<- function(a,b){return((a^r+b^r)^(1/r))}
@@ -46,6 +46,8 @@ Sr.set <- function(sr="combinatorial",r=2){
 }
 
 Sr.set()
+
+Sr.get <- function() return(Sr.sr)
 
 Sr.Zero <- function(n) return(matrix(Sr.zero,nrow=n,ncol=n))
 
@@ -137,6 +139,7 @@ Sr.save.net <- function(fnet,A){
 
 # Examples
 
+Sr.set("shortpaths")
 w <- c(
   0, 2, 3,  5, 0, 0,  0, 0, 0,
   0, 0, 0,  2, 4, 0,  0, 0, 0,
@@ -147,6 +150,8 @@ w <- c(
   5, 0, 0,  0, 0, 0,  0, 0, 0,
   0, 0, 0,  0, 0, 0,  0, 0, 0,
   0, 0, 0,  0, 0, 2,  0, 0, 0  )
-W <- matrix(w,byrow=TRUE,nrow=9)
+W <- Sr.adapt(matrix(w,byrow=TRUE,nrow=9))
 colnames(W) <- rownames(W) <- paste("v",1:9,sep="")
+P <- Sr.Closure(W)
+
 
