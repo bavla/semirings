@@ -5,7 +5,7 @@ basic support in R for network analysis using matrices over semirings
 > source("https://github.com/bavla/semirings/raw/master/semirings.R")
 
 Sr.set  (sr="combinatorial",r=2)
-  sr can be "combinatorial", "shortpaths", "logical", "maxmin", "log", "pathfinder"
+  sets the active semiring. sr can be "combinatorial", "shortpaths", "logical", "maxmin", "log", "pathfinder"
 
 Sr.get  () 
   returns the name of the active semiring
