@@ -1,4 +1,7 @@
 # semirings 
+
+https://github.com/bavla/semirings/wiki/Refs
+
 basic support in R for network analysis using matrices over semirings
 
 The active semiring has two binary operations %(+)% and %(.)% with neutral elements Sr.zero and Sr.one. 
