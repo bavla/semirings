@@ -99,6 +99,8 @@ mulW <- function(A,B){
 > legend("topleft",c("A","B","sumW","mulW"), pch=c(16,16,16,16), 
 +   col=c("red","blue","gray","green"))
 ```
+
+```
 > sumW(A,Z)
      [,1] [,2]
 [1,]    7   15
@@ -116,11 +118,7 @@ mulW <- function(A,B){
 [1,]    0  Inf
 > mulW(A,Z)
      [,1] [,2]
-[1,]  Inf  Inf
-> 
-
-```
-
+[1,]  Inf  Inf 
 ```
 
 ```
