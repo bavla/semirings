@@ -128,4 +128,4 @@ mulW <- function(A,B){
 
 <hr />
 
-[Index](./README.md)
+[Index](../README.md)
