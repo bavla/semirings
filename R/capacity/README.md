@@ -17,6 +17,10 @@ multiplication (**a**⊙**b**)(w) = a(w)+b(w)
 
 The structure (**C**, ⊕, ⊙, **0**, **1**), where **0** = [(∞, ∞)] and **1** = [(0, ∞)], is an absorptive semiring.
 
+**1** ⊕ **a** = **1**
+
+(**1**⊕**a**)(w) = min(1(w),a(w)) = min(0,a(w)) = 0 = 1(w)
+
 ## Capacity weights
 
 ```
