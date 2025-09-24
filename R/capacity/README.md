@@ -27,6 +27,7 @@ September 21-24, 2025
 [4,]   31  Inf
 ```
 
+<img src="https://github.com/bavla/OpenAlex/blob/main/code/test/WIOj.png" width="300" />
 
 ## Visualization, addition, and multiplication of capacity weights
 ```
