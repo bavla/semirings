@@ -1,6 +1,13 @@
 # Capacity semiring
 September 21-24, 2025
 
+An arc p in the weighted network (V,L,w) has weight described by a pair w(p) = (d(p),c(p)) where d(p) is the length of the arc p and c(p) is the capacity of the arc p.
+These weights can be extended to the weight paths and set of paths and described by a sequence of pairs
+
+**a** = [ (ad<sub>1</sub>, ac1), (ad2, ac2), ..., (adk, ack) ]
+
+where adi, aci nonnegative real numbers.
+
 ## Capacity weights
 
 ```
