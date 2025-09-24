@@ -27,7 +27,7 @@ September 21-24, 2025
 [4,]   31  Inf
 ```
 
-<img src="https://github.com/bavla/semirings/blob/master/R/capacity/sum%2Bmul.png" width="800" />
+<img src="https://github.com/bavla/semirings/blob/master/R/capacity/sum%2Bmul.png" width="700" />
 
 ## Visualization, addition, and multiplication of capacity weights
 ```
