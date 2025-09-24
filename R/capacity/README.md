@@ -6,7 +6,13 @@ These weights can be extended to the weight paths and set of paths and described
 
 **a** = [ (ad<sub>1</sub>, ac<sub>1</sub>), (ad<sub>2</sub>, ac<sub>2</sub>), ..., (ad<sub>k</sub>, ac<sub>k</sub>) ]
 
-where ad<sub>i</sub>, ac<sub>i</sub> are nonnegative real numbers.
+where ad<sub>i</sub>, ac<sub>i</sub> are nonnegative real numbers and
+
+i < j ⇒ (ac<sub>i</sub> < ac<sub>j</sub>) ∧ (ad<sub>i</sub> < ad<sub>j</sub>)
+
+(**a**⊕**b**)(w) = min(a(w),b(w))
+(**a**⊙**b**)(w) = a(w)+b(w)
+
 
 ## Capacity weights
 
