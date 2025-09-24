@@ -6,7 +6,7 @@ These weights can be extended to the weight paths and set of paths and described
 
 **a** = [ (ad<sub>1</sub>, ac<sub>1</sub>), (ad<sub>2</sub>, ac<sub>2</sub>), ..., (ad<sub>k</sub>, ac<sub>k</sub>) ]
 
-where adi, aci nonnegative real numbers.
+where ad<sub>i</sub>, ac<sub>i</sub> nonnegative real numbers.
 
 ## Capacity weights
 
