@@ -10,9 +10,12 @@ where ad<sub>i</sub>, ac<sub>i</sub> are nonnegative real numbers and
 
 i < j ⇒ (ac<sub>i</sub> < ac<sub>j</sub>) ∧ (ad<sub>i</sub> < ad<sub>j</sub>)
 
-(**a**⊕**b**)(w) = min(a(w),b(w))<br />
-(**a**⊙**b**)(w) = a(w)+b(w)
+We will call them the **capacity weights** and denote their set with **C**. We can introduce in **C** two operations
 
+addition (**a**⊕**b**)(w) = min(a(w),b(w)) and <br />
+multiplication (**a**⊙**b**)(w) = a(w)+b(w)
+
+The structure (**C**, ⊕, ⊙, **0**, **1**), where **0** = [(∞, ∞)] and **1** = [(0, ∞)], is an absorptive semiring.
 
 ## Capacity weights
 
