@@ -12,6 +12,22 @@ September 21-24, 2025
 > E <- rbind( c(0,Inf) )
 ```
 
+```
+> A
+     [,1] [,2]
+[1,]    7   15
+[2,]   15   20
+[3,]   18   30
+[4,]   28  Inf
+> B
+     [,1] [,2]
+[1,]   11   20
+[2,]   14   30
+[3,]   24   40
+[4,]   31  Inf
+```
+
+
 ## Visualization, addition, and multiplication of capacity weights
 ```
 plotW <- function(A,col="black",lwd=2,pch=16,cex=1){
