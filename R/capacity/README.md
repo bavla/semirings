@@ -141,9 +141,36 @@ mulW <- function(A,B){
      [,1] [,2]
 [1,]  Inf  Inf 
 ```
+## Creating iGraph network with capacity weights
+
+October 1, 2025
+
+https://github.com/bavla/netsJSON/blob/master/format/stru.md
 
 ```
-
+> setwd("C:/Users/vlado/work/R/iGraph/format")
+> C <- read.csv("semiT.csv",skip=1,head=TRUE,sep="")
+> nodes <- c("a","b","c","d","e","f","g")
+> N <- graph_from_data_frame(C[,c("f","t")],directed=TRUE,vertices=nodes)
+> N
+IGRAPH 9146607 DN-- 7 12 -- 
++ attr: name (v/c)
++ edges from 9146607 (vertex names):
+ [1] a->b a->c a->d b->c d->c b->g d->e c->g c->e c->f e->f g->f
+> L <- vector("list",12)
+> for(i in 1:12) L[[i]] <- c(C[i,"d"],C[i,"c"])
+> E(N)$weight <- L
+> N$name <- "semiT"
+> N$tit <- "Test network for the capacity semiring"
+> N$by <- "Vladimir Batagelj"
+> N$cdate <- date()
+> N
+IGRAPH 9146607 DNW- 7 12 -- semiT
++ attr: name (g/c), tit (g/c), by (g/c), cdate (g/c), name (v/c), weight (e/x)
++ edges from 9146607 (vertex names):
+ [1] a->b a->c a->d b->c d->c b->g d->e c->g c->e c->f e->f g->f
+> E(N)[[]]
+> saveRDS(N,file="semiT.rds")
 ```
 
 <hr />
