@@ -175,6 +175,21 @@ IGRAPH 9146607 DNW- 7 12 -- semiT
 > write_graph_netsJSON(N,file="semiT.json")
 ```
 
+## Visualization and adding coordinates
+```
+> E(N)$cw <- E(N)$weight
+> E(N)$weight <- 1
+> N
+> Pt <- tkplot(N,800,800,edge.curved=0,edge.width=2)
+# tkplot window is still active
+> coor <- tk_coords(Pt,norm=F) # save new coordinates
+> tk_close(Pt)
+> V(N)$x <- coor[,1]; V(N)$y <- coor[,2]
+> saveRDS(N,file="semiT.rds")
+> write_graph_netsJSON(N,file="semiT.json")
+```
+
+
 <hr />
 
 [Index](../README.md)
