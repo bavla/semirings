@@ -209,6 +209,33 @@ Because the name weight is reserved in the igraph we rename the capacity weight 
 ```
 <img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT.png" width="400" />
 
+## Computing with capacity weights
+
+```
+> ab <- rbind(links$cw[1][[1]])
+> bc <- rbind(links$cw[4][[1]])
+> ac <- rbind(links$cw[2][[1]])
+> ad <- rbind(links$cw[3][[1]])
+> dc <- rbind(links$cw[5][[1]])
+> bg <- rbind(links$cw[6][[1]])
+> cg <- rbind(links$cw[8][[1]])
+> ab
+     [,1] [,2]
+[1,]    4  Inf
+> act <- sumW(mulW(ab,bc),sumW(ac,mulW(ad,dc)))
+> act
+     [,1] [,2]
+[1,]    3   20
+[2,]    6   30
+[3,]   16  Inf
+> agt <- sumW(mulW(ab,bg),mulW(act,cg))
+> agt
+     [,1] [,2]
+[1,]    7   15
+[2,]   15   20
+[3,]   18   30
+[4,]   28  Inf
+```
 
 
 <hr />
