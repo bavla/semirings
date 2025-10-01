@@ -171,6 +171,8 @@ IGRAPH 9146607 DNW- 7 12 -- semiT
  [1] a->b a->c a->d b->c d->c b->g d->e c->g c->e c->f e->f g->f
 > E(N)[[]]
 > saveRDS(N,file="semiT.rds")
+> library(jsonlite)
+> write_graph_netsJSON(N,file="semiT.json")
 ```
 
 <hr />
