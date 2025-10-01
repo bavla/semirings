@@ -207,6 +207,8 @@ Because the name weight is reserved in the igraph we rename the capacity weight 
 > lab <- gsub(" ","",gsub("Inf","∞",gsub("c","",as.character(E(N)$cw))))
 > plot(N,vertex.size=20,vertex.label.cex=2,edge.label=lab,edge.label.cex=1.5)
 ```
+<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT.png" width="400" />
+
 
 
 <hr />
