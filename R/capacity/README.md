@@ -176,6 +176,8 @@ IGRAPH 9146607 DNW- 7 12 -- semiT
 ```
 
 ## Visualization and adding coordinates
+
+Because the name weight is reserved in the igraph we rename the capacity weight to cw
 ```
 > E(N)$cw <- E(N)$weight
 > E(N)$weight <- 1
@@ -187,6 +189,23 @@ IGRAPH 9146607 DNW- 7 12 -- semiT
 > V(N)$x <- coor[,1]; V(N)$y <- coor[,2]
 > saveRDS(N,file="semiT.rds")
 > write_graph_netsJSON(N,file="semiT.json")
+> links <- as_data_frame(N,what="edges")
+> links
+   from to weight      cw
+1     a  b      1  4, Inf
+2     a  c      1   3, 20
+3     a  d      1 10, Inf
+4     b  c      1   2, 30
+5     d  c      1  6, Inf
+6     b  g      1   3, 15
+7     d  e      1   5, 25
+8     c  g      1 12, Inf
+9     c  e      1  7, Inf
+10    c  f      1   8, 40
+11    e  f      1  9, Inf
+12    g  f      1  3, Inf
+> lab <- gsub(" ","",gsub("Inf","∞",gsub("c","",as.character(E(N)$cw))))
+> plot(N,vertex.size=20,vertex.label.cex=2,edge.label=lab,edge.label.cex=1.5)
 ```
 
 
