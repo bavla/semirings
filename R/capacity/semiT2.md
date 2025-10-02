@@ -1,7 +1,7 @@
 # Capacity semiring / Test network 2
 
 October 2, 2025
-```
+
 ## Creating iGraph network with capacity weights
 
 https://github.com/bavla/netsJSON/blob/master/format/stru.md
