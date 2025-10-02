@@ -6,6 +6,7 @@ October 2, 2025
 
 https://github.com/bavla/netsJSON/blob/master/format/stru.md
 
+
 ```
 > setwd("C:/Users/vlado/work/R/semi")
 > source("https://raw.githubusercontent.com/bavla/Nets/refs/heads/master/netsWeight/netsWeight.R")
