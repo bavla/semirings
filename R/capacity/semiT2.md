@@ -2,7 +2,7 @@
 
 October 2, 2025
 
-## Creating iGraph network with opposite arcs
+## Creating iGraph network with pairs of opposite arcs
 
 
 
