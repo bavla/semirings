@@ -1,5 +1,5 @@
 # Capacity semiring
-September 21-24, 2025
+September / October 2025
 
 1. [Test network 1](semiT1.md)
 2. [Test network 2](semiT2.md)
