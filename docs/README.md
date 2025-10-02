@@ -11,3 +11,4 @@
 6. C:\Users\vlado\work\Python\temporal\test\semiring.py
 7. C:\Users\vlado\docs\papers\2021\algebra\slides
 8. C:\Users\vlado\docs\manuscripts\ESNAM2
+9. https://github.com/bavla/semirings/blob/master/shortest.R
