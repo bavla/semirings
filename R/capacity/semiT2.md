@@ -4,7 +4,6 @@ October 2, 2025
 
 ## Creating iGraph network with opposite arcs
 
-https://github.com/bavla/netsJSON/blob/master/format/stru.md
 
 
 ```
