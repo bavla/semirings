@@ -2,7 +2,7 @@
 
 October 2, 2025
 
-## Creating iGraph network with capacity weights
+## Creating iGraph network with opposite arcs
 
 https://github.com/bavla/netsJSON/blob/master/format/stru.md
 
@@ -79,7 +79,7 @@ https://github.com/bavla/netsJSON/blob/master/format/stru.md
 > plot(N2,vertex.size=20,vertex.label.cex=2,edge.label=lab,edge.label.cex=1.5)
 ```
 
-<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT.png" width="400" />
+<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
 ```
 ```
@@ -87,4 +87,4 @@ https://github.com/bavla/netsJSON/blob/master/format/stru.md
 
 <hr />
 
-[Index](../README.md)
+[Index](README.md)
