@@ -4,7 +4,7 @@ October 2, 2025
 
 ## Creating iGraph network with pairs of opposite arcs
 
-
+In the vector dir we indicate the type of a link - a -> arc, e -> edge. For all edges we extend a given network with the corresponding opposite arcs.
 
 ```
 > setwd("C:/Users/vlado/work/R/semi")
