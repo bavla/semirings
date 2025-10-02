@@ -1,8 +1,8 @@
 # Docs
 
-1. Vladimir Batagelj: Nekaj malega o kvazikolobarjih, v-grafih in vrednostnih matrikah. IJS, Ljubljana, december 1970 ([PDF](v-grafi.pdf))
+1. Vladimir Batagelj: Nekaj malega o kvazikolobarjih, v-grafih in vrednostnih matrikah. IJS, Ljubljana, december 1970. ([PDF](v-grafi.pdf))
+3. Vladimir Batagelj: Najkrajše poti. Programerski praktikum. FNT, matematika, Ljubljana 1971. ([PDF](najPoti.pdf))
 2. Vladimir Batagelj: Semirings in network data analysis / an overview. 2021. ([PDF](semirings.pdf))
-3. ([PDF]())
 
 ## Links
 
