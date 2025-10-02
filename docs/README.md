@@ -1,7 +1,8 @@
 # Docs
 
-1. Vladimir Batagelj: Nekaj malega o kvazikolobarjih, v-grafih in vrednostnih matrikah.
-IJS, Ljubljana, december 1970 [PDF]()
+1. Vladimir Batagelj: Nekaj malega o kvazikolobarjih, v-grafih in vrednostnih matrikah. IJS, Ljubljana, december 1970 ([PDF](v-grafi.pdf))
+2. ([PDF]())
+3. ([PDF]())
 
 ## Links
 
