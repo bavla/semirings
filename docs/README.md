@@ -1,7 +1,7 @@
 # Docs
 
 1. Vladimir Batagelj: Nekaj malega o kvazikolobarjih, v-grafih in vrednostnih matrikah. IJS, Ljubljana, december 1970 ([PDF](v-grafi.pdf))
-2. ([PDF]())
+2. Vladimir Batagelj: Semirings in network data analysis / an overview. 2021. ([PDF](semirings.pdf))
 3. ([PDF]())
 
 ## Links
