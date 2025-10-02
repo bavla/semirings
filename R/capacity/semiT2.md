@@ -14,7 +14,6 @@ https://github.com/bavla/netsJSON/blob/master/format/stru.md
 > library(igraph)
 > N <- readRDS("semiT.rds")
 > N
-
 > dir <- c("a","e","a","a","a","a","e","a","a","a","e","a")
 > E(N)$dir <- dir
 > (links <- as_data_frame(N,what="edges"))
