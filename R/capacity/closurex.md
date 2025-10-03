@@ -138,7 +138,6 @@ mulT <- function(A,B,k){
 [6,] "f" 
 [7,] "g"  
 ```
-<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
 ## Path reconstruction
 
@@ -221,6 +220,7 @@ IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
 > 
 
 ```
+<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
 ```
 
