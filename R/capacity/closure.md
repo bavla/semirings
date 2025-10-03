@@ -16,32 +16,23 @@ Monika Cerinšek, Vladimir Batagelj: Semirings and Matrix Analysis of Networks
 ```
 > setwd("C:/Users/vlado/work/R/semi")
 > source("capacity.R")
-> library(igraph)
-> library(data.table)
+> library(igraph); library(data.table)
 > CW <- function(p) rbind(C$cw[p][[1]])
 > N <- readRDS("semiT2.rds")
-> n <- gorder(N); m <- gsize(N)
-> nodes <- as_data_frame(N,what="vertices")
-> links <- as_data_frame(N,what="edges")
+> n <- gorder(N); nodes <- as_data_frame(N,what="vertices")
 > Z <- rbind(c(Inf,Inf)); E <- rbind(c(0,Inf))
 > # initialize closure matrix
-> L <- CJ(nodes$name,nodes$name)
-> ZZ <- vector("list",n*n)
+> L <- CJ(nodes$name,nodes$name); ZZ <- vector("list",n*n)
 > for(i in 1:n**2) ZZ[[i]] <- Z
-> C <- data.frame(from=L$V1,to=L$V2)
-> C$cw <- ZZ
-> for(p in 1:m){
-+   uv <- as.vector(ends(N,p,names=FALSE))
-+   i <- (uv[1]-1)*n + uv[2]
-+   C$cw[i] <- E(N)$cw[p]
+> C <- data.frame(from=L$V1,to=L$V2); C$cw <- ZZ
+> for(p in 1:m){ uv <- as.vector(ends(N,p,names=FALSE))   
++   C$cw[(uv[1]-1)*n + uv[2]] <- E(N)$cw[p]
 + }
 > # Fletcher algorithm
 > for(t in 1:n){
-+   for(u in 1:n) {
-+     for(v in 1:n) { uv <- (u-1)*n + v
-+       ut <- (u-1)*n + t; tv <- (t-1)*n + v
-+       C$cw[uv][[1]] <- sumW(CW(uv),mulW(CW(ut),CW(tv)))
-+     }
++   for(u in 1:n) for(v in 1:n) { uv <- (u-1)*n + v
++     ut <- (u-1)*n + t; tv <- (t-1)*n + v
++     C$cw[uv][[1]] <- sumW(CW(uv),mulW(CW(ut),CW(tv)))
 +   }
 +   tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumW(E,CW(tt))
 + }
