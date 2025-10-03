@@ -1,8 +1,8 @@
-# Capacity semiring / Closure
+# Capacity semiring / Extended closure
 
 October 3, 2025
 
-
+To be able to reconstruct also the minimal paths we extend the pairs (d,w) to triples (d,w,t) - the pair (d,w) is realized by passing through the node t.
 ```
 sumT <- function(A,B){
   na = nrow(A); nb <- nrow(B)
@@ -126,7 +126,15 @@ mulT <- function(A,B,k){
 [3,]   14   30    3
 [4,]   24   40    4
 [5,]   31  Inf    7
-> 
+> cbind(nodes$name)
+     [,1]
+[1,] "a" 
+[2,] "b" 
+[3,] "c" 
+[4,] "d" 
+[5,] "e" 
+[6,] "f" 
+[7,] "g"  
 ```
 <img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
