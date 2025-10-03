@@ -139,6 +139,18 @@ mulT <- function(A,B,k){
 [7,] "g"  
 ```
 
+## Saving closure to file
+```
+> CNx <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
+> CNx$name <- "semiT2 extended closure"
+> CNx$tit <- "Extended closure of the Test network 2 for the capacity semiring"
+> CNx$by <- "Vladimir Batagelj"
+> CNx$cdate <- date()
+> saveRDS(CNx,file="xclosureT2.rds")
+> write_graph_netsJSON(CNx,file="xclosureT2.json")
+```
+
+
 ## Path reconstruction
 
 https://github.com/bavla/semirings/blob/master/shortest.R
@@ -226,17 +238,6 @@ IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
 
 ```
 
-
-## Saving closure to file
-```
-> CNx <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
-> CNx$name <- "semiT2 extended closure"
-> CNx$tit <- "Extended closure of the Test network 2 for the capacity semiring"
-> CNx$by <- "Vladimir Batagelj"
-> CNx$cdate <- date()
-> saveRDS(CNx,file="xclosureT2.rds")
-> write_graph_netsJSON(CNx,file="xclosureT2.json")
-```
 
 
 <hr />
