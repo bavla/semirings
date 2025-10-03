@@ -131,13 +131,13 @@ mulT <- function(A,B,k){
 
 
 ```
-> CN <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
-> CN$name <- "semiT2 closure"
-> CN$tit <- "Closure of the Test network 2 for the capacity semiring"
-> CN$by <- "Vladimir Batagelj"
-> CN$cdate <- date()
-> saveRDS(CN,file="closureT2.rds")
-> write_graph_netsJSON(CN,file="closureT2.json")
+> CNx <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
+> CNx$name <- "semiT2 extended closure"
+> CNx$tit <- "Extended closure of the Test network 2 for the capacity semiring"
+> CNx$by <- "Vladimir Batagelj"
+> CNx$cdate <- date()
+> saveRDS(CNx,file="xclosureT2.rds")
+> write_graph_netsJSON(CNx,file="xclosureT2.json")
 ```
 
 
