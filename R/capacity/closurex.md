@@ -3,6 +3,8 @@
 October 3, 2025
 
 To be able to reconstruct also the minimal paths we extend the pairs (d,w) to triples (d,w,t) - the pair (d,w) is realized by passing through the node t.
+
+## Extended operations
 ```
 sumT <- function(A,B){
   na = nrow(A); nb <- nrow(B)
@@ -35,7 +37,7 @@ mulT <- function(A,B,k){
   return(C)
 }
 ```
-
+## Extended closure
 ```
 > L <- CJ(nodes$name,nodes$name)
 > ZZ <- vector("list",n*n)
@@ -60,7 +62,7 @@ mulT <- function(A,B,k){
 + }
 ```
 
-
+## Example
 
 ```
 > C
@@ -138,7 +140,7 @@ mulT <- function(A,B,k){
 ```
 <img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
-
+## Saving closure to file
 ```
 > CNx <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
 > CNx$name <- "semiT2 extended closure"
