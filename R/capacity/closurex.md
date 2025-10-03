@@ -140,6 +140,10 @@ mulT <- function(A,B,k){
 ```
 <img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
+## Path reconstruction
+
+https://github.com/bavla/semirings/blob/master/shortest.R
+
 ## Saving closure to file
 ```
 > CNx <- graph_from_data_frame(C,directed=TRUE,vertices=nodes)
