@@ -39,24 +39,16 @@ mulT <- function(A,B,k){
 ```
 ## Extended closure
 ```
-> L <- CJ(nodes$name,nodes$name)
-> ZZ <- vector("list",n*n)
+> L <- CJ(nodes$name,nodes$name); ZZ <- vector("list",n*n)
 > for(i in 1:n**2) ZZ[[i]] <- cbind(Z,0)
-> C <- data.frame(from=L$V1,to=L$V2)
-> C$cw <- ZZ
-> for(p in 1:m){
-+   uv <- as.vector(ends(N,p,names=FALSE))
-+   i <- (uv[1]-1)*n + uv[2]
-+   C$cw[i] <- list(cbind(rbind(E(N)$cw[p][[1]]),0))
+> C <- data.frame(from=L$V1,to=L$V2); C$cw <- ZZ
+> for(p in 1:m){ uv <- as.vector(ends(N,p,names=FALSE))  
++   C$cw[i <- (uv[1]-1)*n + uv[2]] <- list(cbind(rbind(E(N)$cw[p][[1]]),0))
 + }
-> # CC <- C
-> # C <- CC
 > for(t in 1:n){
-+   for(u in 1:n) {
-+     for(v in 1:n) { uv <- (u-1)*n + v
-+       ut <- (u-1)*n + t; tv <- (t-1)*n + v
-+       C$cw[uv][[1]] <- sumT(CW(uv),mulT(CW(ut),CW(tv),t))
-+     }
++   for(u in 1:n) for(v in 1:n) { uv <- (u-1)*n + v
++     ut <- (u-1)*n + t; tv <- (t-1)*n + v
++     C$cw[uv][[1]] <- sumT(CW(uv),mulT(CW(ut),CW(tv),t))
 +   }
 +   tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumT(cbind(E,0),CW(tt))
 + }
