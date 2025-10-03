@@ -128,6 +128,7 @@ mulT <- function(A,B,k){
 [5,]   31  Inf    7
 > 
 ```
+<img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
 
 ```
