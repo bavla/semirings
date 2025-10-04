@@ -39,7 +39,12 @@ paths <- function(C,u,v){
 ## Computing an extended closure
 
 ```
-
+> setwd("C:/Users/vlado/work/R/semi")
+> source("capacity.R")
+> source("https://raw.githubusercontent.com/bavla/Nets/refs/heads/master/netsWeight/netsWeight.R")
+> library(jsonlite); library(igraph); library(data.table)
+> N <- readRDS("semiT2.rds")
+> CX <- closureT(N)
 ```
 
 ## Reading a saved extended closure
@@ -51,9 +56,8 @@ paths <- function(C,u,v){
 > library(jsonlite)
 > library(igraph)
 > library(data.table)
-> CW <- function(p) rbind(C$cw[p][[1]])
-> CNx <- readRDS("xclosureT2.rds")
-> CNx
+> CX <- readRDS("xclosureT2.rds")
+> CX
 IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
 + attr: name (g/c), tit (g/c), by (g/c), cdate (g/c), name (v/c), x (v/n), y
 | (v/n), cw (e/x)
@@ -61,12 +65,11 @@ IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
  [1] a->a a->b a->c a->d a->e a->f a->g b->a b->b b->c b->d b->e b->f b->g c->a c->b c->c
 [18] c->d c->e c->f c->g d->a d->b d->c d->d d->e d->f d->g e->a e->b e->c e->d e->e e->f
 [35] e->g f->a f->b f->c f->d f->e f->f f->g g->a g->b g->c g->d g->e g->f g->g
-> n <- gorder(CNx); m <- gsize(CNx)
-> nodes <- as_data_frame(CNx,what="vertices")
-> links <- as_data_frame(CNx,what="edges")
-> Z <- rbind(c(Inf,Inf)); E <- rbind(c(0,Inf))
+> n <- gorder(CX); m <- gsize(CX)
+> nodes <- as_data_frame(CX,what="vertices")
+> links <- as_data_frame(CX,what="edges")
 > C <- links
-> CW(6)
+> CW(C,6)
      [,1] [,2] [,3]
 [1,]   10   15    7
 [2,]   11   20    3
