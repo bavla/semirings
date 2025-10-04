@@ -1,17 +1,16 @@
-# Capacity semiring / Extended closure
+# Path reconstruction
 
 October 3, 2025
 
 To be able to reconstruct also the minimal paths we extend the pairs (d,w) to triples (d,w,t) - the pair (d,w) is realized by passing through the node t.
 
-
-## Path reconstruction
-
 https://github.com/bavla/semirings/blob/master/shortest.R
 
 ```
+CW <- function(C,p) rbind(C$cw[p][[1]])
+
 nodex <- function(C,u,v,c){
-  uv <- (u-1)*n + v; T <- CW(uv)
+  uv <- (u-1)*n + v; T <- CW(C,uv)
   for(i in 1:nrow(T)) if(T[i,2]>=c) break
   return(T[i,3])
 }
@@ -28,7 +27,7 @@ path <- function(C,u,v,c){
 }
 
 paths <- function(C,u,v){
-  uv <- (u-1)*n + v; T <- CW(uv)
+  uv <- (u-1)*n + v; T <- CW(C,uv)
   P <- data.frame(d=T[,1],c=T[,2]); P$P <- vector("list",nrow(T))
   for(i in 1:nrow(T)) P$P[i] <- list(path(C,u,v,T[i,2]))
   return(P)
