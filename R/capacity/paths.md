@@ -4,6 +4,8 @@ October 3, 2025
 
 To be able to reconstruct also the minimal paths we extend the pairs (d,w) to triples (d,w,t) - the pair (d,w) is realized by passing through the node t.
 
+## Functions
+
 https://github.com/bavla/semirings/blob/master/shortest.R
 
 ```
@@ -33,6 +35,14 @@ paths <- function(C,u,v){
   return(P)
 }
 ```
+
+## Computing an extended closure
+
+```
+
+```
+
+## Reading a saved extended closure
 
 ```
 > setwd("C:/Users/vlado/work/R/semi")
