@@ -43,7 +43,7 @@ mulT <- function(A,B,k){
 > for(i in 1:n**2) ZZ[[i]] <- cbind(Z,0)
 > C <- data.frame(from=L$V1,to=L$V2); C$cw <- ZZ
 > for(p in 1:m){ uv <- as.vector(ends(N,p,names=FALSE))  
-+   C$cw[i <- (uv[1]-1)*n + uv[2]] <- list(cbind(rbind(E(N)$cw[p][[1]]),0))
++   C$cw[(uv[1]-1)*n + uv[2]] <- list(cbind(rbind(E(N)$cw[p][[1]]),0))
 + }
 > for(t in 1:n){
 +   for(u in 1:n) for(v in 1:n) { uv <- (u-1)*n + v
