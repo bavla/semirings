@@ -6,6 +6,7 @@ September / October 2025
 1. [Capacity semiring](semiring.md)
 2. [Closure](closure.md)
 3. [Extended closure](closurex.md)
+4. [Paths](paths.md)
 
 <hr />
 
