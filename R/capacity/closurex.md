@@ -5,6 +5,8 @@ October 3, 2025
 To be able to reconstruct also the minimal paths we extend the pairs (d,w) to triples (d,w,t) - the pair (d,w) is realized by passing through the node t.
 
 ## Extended operations
+
+In the first version
 ```
 sumT <- function(A,B){
   na = nrow(A); nb <- nrow(B)
@@ -37,6 +39,19 @@ mulT <- function(A,B,k){
   return(C)
 }
 ```
+I made a mistake in the function `sumT`. In the 9th line we should update also the intermidiate node `C[nrow(C),3]`
+```
+    if(d==do) {C[nrow(C),2] <- t; C[nrow(C),3] <- k} else C <- rbind(C,c(d,t,k))
+```
+This mistake produced the error between nodes d and f in our test network
+```
+> sumT(rbind(c(14,40,3)),rbind(c(14,25,5)))
+     [,1] [,2] [,3]
+[1,]   14   40    5
+```
+
+
+
 ## Extended closure
 ```
 > L <- CJ(nodes$name,nodes$name); ZZ <- vector("list",n*n)
@@ -56,6 +71,7 @@ mulT <- function(A,B,k){
 
 ## Example
 
+Errors because of incorrect  `sumT`
 ```
 > C
    from to                                                     cw
