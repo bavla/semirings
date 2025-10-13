@@ -78,13 +78,13 @@ IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
 [5,]   31  Inf    7
 > u <- 1; v <- 6; c <- 35
 > nodes$name[path(C,u,v,35)]
-[1] "a" "d" "c" "e" "f"
+[1] "a" "d" "c" "f"
 > (P <- paths(C,u,v))
    d   c             P
 1 10  15    1, 2, 7, 6
 2 11  20       1, 3, 6
 3 14  30    1, 2, 3, 6
-4 24  40 1, 4, 3, 5, 6
+4 24  40    1, 4, 3, 6
 5 31 Inf 1, 4, 3, 7, 6
 > Q <- P
 > for(i in 1:nrow(P)) Q$P[i] <- list(nodes$name[P$P[i][[1]]])
@@ -93,10 +93,8 @@ IGRAPH 273a732 DN-- 7 49 -- semiT2 extended closure
 1 10  15    a, b, g, f
 2 11  20       a, c, f
 3 14  30    a, b, c, f
-4 24  40 a, d, c, e, f
+4 24  40    a, d, c, f
 5 31 Inf a, d, c, g, f
-> 
-
 ```
 <img src="https://github.com/bavla/semirings/blob/master/R/capacity/semiT2.png" width="400" />
 
