@@ -145,7 +145,9 @@ closureT <- function(N){
 
 nodex <- function(C,u,v,c){
   uv <- (u-1)*n + v; T <- CW(C,uv)
+  if(T[1,1] == Inf) return(0)
   for(i in 1:nrow(T)) if(T[i,2]>=c) break
+  if(T[i,1] == Inf) return(0)
   return(T[i,3])
 }
 
@@ -156,7 +158,7 @@ nodex <- function(C,u,v,c){
 }
 
 path <- function(C,u,v,c){
-  if(nodex(C,u,v,c) == Inf) return(NULL)
+  if(nodex(C,u,v,c) == 0) return(NULL)
   return(c(u,.path(C,u,v,c),v))
 }
 

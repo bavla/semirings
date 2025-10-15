@@ -39,6 +39,10 @@
 > # Network
 > N <- readRDS("semiT2.rds")
 > sapply(graph_attr_names(N),function(x) graph_attr(N,x))
+> lab <- gsub(" ","",gsub("Inf","∞",gsub("c","",as.character(E(N)$cw))))
+> lab[(N$mo+1):length(lab)] <- ""
+> plot(N,vertex.size=20,vertex.label.cex=2,edge.label=lab,edge.label.cex=1.5)
+>
 > n <- gorder(N); m <- gsize(N)
 > nodes <- as_data_frame(N,what="vertices")
 > links <- as_data_frame(N,what="edges")
