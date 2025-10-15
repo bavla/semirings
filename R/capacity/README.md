@@ -7,6 +7,7 @@ September / October 2025
 2. [Closure](closure.md)
 3. [Extended closure](closurex.md)
 4. [Paths](paths.md)
+5. [1370. Sredin seminar slides][sreda1370.pdf)
 
 <hr />
 
