@@ -1,7 +1,13 @@
-# Capacity semiring
-# VB, Sep 21-24, 2025
+# Length and capacity semiring
+# VB, Sep 21-24, 2025 / Oct 2025
 
 # https://github.com/bavla/semirings/tree/master/R/capacity
+
+# semiring nevtral elements
+
+Z <- rbind(c(Inf,Inf)); E <- rbind(c(0,Inf))
+
+# draw a length and capacity weight
 
 plotW <- function(A,col="black",lwd=2,pch=16,cex=1){
   na <- nrow(A)
@@ -11,6 +17,8 @@ plotW <- function(A,col="black",lwd=2,pch=16,cex=1){
     points(c(Ax[i,2],Ax[i+1,2]),rep(Ax[i+1,1],2),col=col,type="l",lwd=lwd)
   points(A[,2],A[,1],col=col,pch=pch,cex=cex)
 }
+
+# semiring operations
 
 sumW <- function(A,B){
   na = nrow(A); nb <- nrow(B)
@@ -42,8 +50,11 @@ mulW <- function(A,B){
   return(C)
 }
 
+CW <- function(C,p) rbind(C$cw[p][[1]])
+
 closureW <- function(N){
-  n <- gorder(N); nodes <- as_data_frame(N,what="vertices")
+  n <- gorder(N); m <- gsize(N)
+  nodes <- as_data_frame(N,what="vertices")
   Z <- rbind(c(Inf,Inf)); E <- rbind(c(0,Inf))
 # initialize closure matrix
   L <- CJ(nodes$name,nodes$name)
@@ -53,13 +64,13 @@ closureW <- function(N){
   for(p in 1:m){ uv <- as.vector(ends(N,p,names=FALSE))
     C$cw[(uv[1]-1)*n + uv[2]] <- E(N)$cw[p]
   }
-# Fletcher algorithm
+# Fletcher's algorithm
   for(t in 1:n){
     for(u in 1:n) for(v in 1:n) { uv <- (u-1)*n + v
       ut <- (u-1)*n + t; tv <- (t-1)*n + v
-      C$cw[uv][[1]] <- sumW(CW(uv),mulW(CW(ut),CW(tv)))
+      C$cw[uv][[1]] <- sumW(CW(C,uv),mulW(CW(C,ut),CW(C,tv)))
     }
-    tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumW(E,CW(tt))
+    tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumW(E,CW(C,tt))
   }
   return(C)
 }
@@ -67,7 +78,7 @@ closureW <- function(N){
 # N <- readRDS("semiT2.rds")
 # ClN <- closureW(N)
 
-# Extended capacity semiring operations
+# Extended length and capacity semiring operations
 # October 3, 2025
 
 sumT <- function(A,B){
@@ -78,7 +89,7 @@ sumT <- function(A,B){
     if(ib<=nb) {db <- B[ib,1]; tb <- B[ib,2]; kb <- B[ib,3]} else {db <- tb <- Inf}
     if(da<db) {d <- da; k <- ka} else {d <- db; k <- kb} 
     t <- min(ta,tb)
-    if(d==do) C[nrow(C),2] <- t else C <- rbind(C,c(d,t,k))
+    if(d==do) {C[nrow(C),2] <- t; C[nrow(C),3] <- k} else C <- rbind(C,c(d,t,k))
     do <- d
     if(t>=ta) ia <- ia+1
     if(t>=tb) ib <- ib+1
@@ -104,11 +115,12 @@ mulT <- function(A,B,k){
 # Extended closure
 
 closureT <- function(N){
-  n <- gorder(N); nodes <- as_data_frame(N,what="vertices")
+  n <- gorder(N); m <- gsize(N)
+  nodes <- as_data_frame(N,what="vertices")
   Z <- rbind(c(Inf,Inf)); E <- rbind(c(0,Inf))
 # initialize closure matrix
   L <- CJ(nodes$name,nodes$name)
-  ZZ <- vector("list",n*n)
+  ZZ <- vector("list",n**2)
   for(i in 1:n**2) ZZ[[i]] <- cbind(Z,0)
   C <- data.frame(from=L$V1,to=L$V2); C$cw <- ZZ
   for(p in 1:m){ uv <- as.vector(ends(N,p,names=FALSE)) 
@@ -118,21 +130,21 @@ closureT <- function(N){
   for(t in 1:n){
     for(u in 1:n) for(v in 1:n) { uv <- (u-1)*n + v
       ut <- (u-1)*n + t; tv <- (t-1)*n + v
-      C$cw[uv][[1]] <- sumT(CW(uv),mulT(CW(ut),CW(tv),t))
+      C$cw[uv][[1]] <- sumT(CW(C,uv),mulT(CW(C,ut),CW(C,tv),t))
     }
-    tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumT(cbind(E,0),CW(tt))
+    tt <- (t-1)*n + t; C$cw[tt][[1]] <- sumT(cbind(E,0),CW(C,tt))
   }
   return(C)
 }
 
 # N <- readRDS("semiT2.rds")
-# CxN <- closureT(N)
+# CX <- closureT(N)
 
 # paths construction
 # https://github.com/bavla/semirings/blob/master/shortest.R
 
 nodex <- function(C,u,v,c){
-  uv <- (u-1)*n + v; T <- CW(uv)
+  uv <- (u-1)*n + v; T <- CW(C,uv)
   for(i in 1:nrow(T)) if(T[i,2]>=c) break
   return(T[i,3])
 }
@@ -149,8 +161,11 @@ path <- function(C,u,v,c){
 }
 
 paths <- function(C,u,v){
-  uv <- (u-1)*n + v; T <- CW(uv)
+  uv <- (u-1)*n + v; T <- CW(C,uv)
   P <- data.frame(d=T[,1],c=T[,2]); P$P <- vector("list",nrow(T))
   for(i in 1:nrow(T)) P$P[i] <- list(path(C,u,v,T[i,2]))
   return(P)
 } 
+
+
+
