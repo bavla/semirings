@@ -8,6 +8,8 @@
 > library(igraph); library(data.table); library(jsonlite)
 > source("https://raw.githubusercontent.com/bavla/semirings/refs/heads/master/R/capacity/capacity.R")
 > # source("capacity.R")
+> source("https://raw.githubusercontent.com/bavla/Nets/refs/heads/master/netsWeight/netsWeight.R")
+> # source("netsWeight.R")
 
 > # Length and capacity emiring
 > A <- rbind( c(7,15), c(15,20), c(18,30), c(28,Inf) )
@@ -57,3 +59,8 @@
 > Q <- P
 > for(i in 1:nrow(P)) Q$P[i] <- list(nodes$name[P$P[i][[1]]])
 > Q
+
+> ex <- "https://raw.githubusercontent.com/bavla/semirings/refs/heads/master/R/capacity/semiT2.json"
+> T <- netsJSON_to_graph(fromJSON(ex),directed=TRUE)
+> CT <- closureT(T)
+
